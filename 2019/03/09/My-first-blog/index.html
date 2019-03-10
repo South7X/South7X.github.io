@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="test,">
 
 
 
@@ -79,18 +79,19 @@
 
 
 
-<meta name="description" content="TestTest1 code示例： 1234567891011#!/usr/bin/env python3# -*- coding: utf-8 -*-def get_html_text(url, data):    try:        pro = &amp;#123;&apos;http&apos;: random.choice(proxies)&amp;#125;        r = requests.get(url, p">
+<meta name="description" content="Front matter参数举例title: My first blog date: 2019-03-09 13:36:16 updated: 2019-03-10 15:50 tags: [test, tag2, tag3] categories: Diary comments: false     //默认true，不过我也没开评论 layout:         //布局，暂时不知道怎么用">
+<meta name="keywords" content="test">
 <meta property="og:type" content="article">
 <meta property="og:title" content="My first blog">
 <meta property="og:url" content="http://yoursite.com/2019/03/09/My-first-blog/index.html">
 <meta property="og:site_name" content="Nanyan">
-<meta property="og:description" content="TestTest1 code示例： 1234567891011#!/usr/bin/env python3# -*- coding: utf-8 -*-def get_html_text(url, data):    try:        pro = &amp;#123;&apos;http&apos;: random.choice(proxies)&amp;#125;        r = requests.get(url, p">
+<meta property="og:description" content="Front matter参数举例title: My first blog date: 2019-03-09 13:36:16 updated: 2019-03-10 15:50 tags: [test, tag2, tag3] categories: Diary comments: false     //默认true，不过我也没开评论 layout:         //布局，暂时不知道怎么用">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/03/09/My-first-blog/test.png">
-<meta property="og:updated_time" content="2019-03-09T06:25:22.405Z">
+<meta property="og:updated_time" content="2019-03-10T07:52:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="My first blog">
-<meta name="twitter:description" content="TestTest1 code示例： 1234567891011#!/usr/bin/env python3# -*- coding: utf-8 -*-def get_html_text(url, data):    try:        pro = &amp;#123;&apos;http&apos;: random.choice(proxies)&amp;#125;        r = requests.get(url, p">
+<meta name="twitter:description" content="Front matter参数举例title: My first blog date: 2019-03-09 13:36:16 updated: 2019-03-10 15:50 tags: [test, tag2, tag3] categories: Diary comments: false     //默认true，不过我也没开评论 layout:         //布局，暂时不知道怎么用">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/09/My-first-blog/test.png">
 
 
@@ -353,7 +354,20 @@
       
 
       
-        <h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><h2 id="Test1-code"><a href="#Test1-code" class="headerlink" title="Test1 code"></a>Test1 code</h2><p>示例：</p>
+        <h1 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front matter"></a>Front matter</h1><h2 id="参数举例"><a href="#参数举例" class="headerlink" title="参数举例"></a>参数举例</h2><p>title: My first blog</p>
+<p>date: 2019-03-09 13:36:16</p>
+<p>updated: 2019-03-10 15:50</p>
+<p>tags: [test, tag2, tag3]</p>
+<p>categories: Diary</p>
+<p>comments: false     //默认true，不过我也没开评论</p>
+<p>layout:         //布局，暂时不知道怎么用</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags"></a>tags</h2><p>写法一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tags: [tag1, tag2, tag3]</span><br></pre></td></tr></table></figure>
+<p>写法二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tags: </span><br><span class="line">  - tag1</span><br><span class="line">  - tag2</span><br></pre></td></tr></table></figure>
+<h2 id="categories"><a href="#categories" class="headerlink" title="categories"></a>categories</h2><p>子目录写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">  - Diary</span><br><span class="line">  - life</span><br></pre></td></tr></table></figure>
+<h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><h2 id="Test1-code"><a href="#Test1-code" class="headerlink" title="Test1 code"></a>Test1 code</h2><p>示例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_html_text</span><span class="params">(url, data)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        pro = &#123;<span class="string">'http'</span>: random.choice(proxies)&#125;</span><br><span class="line">        r = requests.get(url, params=data, headers=header, cookies=cookies, proxies=pro)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        <span class="comment"># r.encoding = r.apparent_encoding</span></span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(r.status_code)</span><br></pre></td></tr></table></figure>
 <h2 id="Test2-line"><a href="#Test2-line" class="headerlink" title="Test2 line"></a>Test2 line</h2><p>语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">法一：---</span><br></pre></td></tr></table></figure>
@@ -390,10 +404,37 @@
 <h2 id="Test6-list"><a href="#Test6-list" class="headerlink" title="Test6 list"></a>Test6 list</h2><p>语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 有序列表项</span><br><span class="line"></span><br><span class="line">* 无序列表项</span><br><span class="line"></span><br><span class="line">+ 无序列表项</span><br><span class="line"></span><br><span class="line">- 无序列表项</span><br></pre></td></tr></table></figure>
 <ol>
-<li>First</li>
-<li>Second</li>
-<li>Third</li>
+<li><p>First</p>
+</li>
+<li><p>Second</p>
+</li>
+<li><p>Third</p>
+<ul>
+<li><p>First  use   *</p>
+</li>
+<li><p>Second    use “Enter”</p>
+</li>
+<li><p>Third</p>
+</li>
+</ul>
+</li>
 </ol>
+<ul>
+<li>First use “+”</li>
+<li>Second use “Enter”</li>
+</ul>
+<ul>
+<li>Third use “ - “</li>
+</ul>
+<p>Use twice “Enter” to concel a list</p>
+<h2 id="Test7-Character"><a href="#Test7-Character" class="headerlink" title="Test7 Character"></a>Test7 Character</h2><p>斜体：<em>斜体</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*斜体*</span><br></pre></td></tr></table></figure>
+<p>粗体： <strong>粗体</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**粗体**</span><br></pre></td></tr></table></figure>
+<p>加粗斜体： <strong><em>加粗斜体</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">***加粗斜体***</span><br></pre></td></tr></table></figure>
+<p>删除线： <del>删除线</del></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -408,6 +449,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/test/" rel="tag"># test</a>
+          
+        </div>
       
 
       
@@ -427,10 +474,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/10/标签/" rel="prev" title="标签">
-                标签 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -509,7 +552,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -526,6 +569,15 @@
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -573,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Test"><span class="nav-number">1.</span> <span class="nav-text">Test</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Test1-code"><span class="nav-number">1.1.</span> <span class="nav-text">Test1 code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test2-line"><span class="nav-number">1.2.</span> <span class="nav-text">Test2 line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test3-link"><span class="nav-number">1.3.</span> <span class="nav-text">Test3 link</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test4-image"><span class="nav-number">1.4.</span> <span class="nav-text">Test4 image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test5-table"><span class="nav-number">1.5.</span> <span class="nav-text">Test5 table</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test6-list"><span class="nav-number">1.6.</span> <span class="nav-text">Test6 list</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Front-matter"><span class="nav-number">1.</span> <span class="nav-text">Front matter</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数举例"><span class="nav-number">1.1.</span> <span class="nav-text">参数举例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tags"><span class="nav-number">1.2.</span> <span class="nav-text">tags</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#categories"><span class="nav-number">1.3.</span> <span class="nav-text">categories</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Test"><span class="nav-number">2.</span> <span class="nav-text">Test</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Test1-code"><span class="nav-number">2.1.</span> <span class="nav-text">Test1 code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test2-line"><span class="nav-number">2.2.</span> <span class="nav-text">Test2 line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test3-link"><span class="nav-number">2.3.</span> <span class="nav-text">Test3 link</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test4-image"><span class="nav-number">2.4.</span> <span class="nav-text">Test4 image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test5-table"><span class="nav-number">2.5.</span> <span class="nav-text">Test5 table</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test6-list"><span class="nav-number">2.6.</span> <span class="nav-text">Test6 list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test7-Character"><span class="nav-number">2.7.</span> <span class="nav-text">Test7 Character</span></a></li></ol></li></ol></div>
             
 
           </div>
