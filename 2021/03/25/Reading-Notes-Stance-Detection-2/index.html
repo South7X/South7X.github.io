@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="1. [EMNLP’20] DeSMOG: Detecting Stance in Media On Global Warming作者（Dan Jurafsky !!!哇）专门针对global warming这个话题做了一个数据集，强调在讨论该话题时，人们通常引用并评价他人的观点来表达自己的观点的情况。例如：  Leading scientists agree that global warmin">
+<meta name="description" content="[EMNLP’20] DeSMOG: Detecting Stance in Media On Global Warming作者（Dan Jurafsky !!!哇）专门针对global warming这个话题做了一个数据集，强调在讨论该话题时，人们通常引用并评价他人的观点来表达自己的观点的情况。例如：  Leading scientists agree that global warming i">
 <meta name="keywords" content="NLP,Stance Detection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Reading Notes] Stance Detection (2)">
 <meta property="og:url" content="http://yoursite.com/2021/03/25/Reading-Notes-Stance-Detection-2/index.html">
 <meta property="og:site_name" content="Xiang Li">
-<meta property="og:description" content="1. [EMNLP’20] DeSMOG: Detecting Stance in Media On Global Warming作者（Dan Jurafsky !!!哇）专门针对global warming这个话题做了一个数据集，强调在讨论该话题时，人们通常引用并评价他人的观点来表达自己的观点的情况。例如：  Leading scientists agree that global warmin">
+<meta property="og:description" content="[EMNLP’20] DeSMOG: Detecting Stance in Media On Global Warming作者（Dan Jurafsky !!!哇）专门针对global warming这个话题做了一个数据集，强调在讨论该话题时，人们通常引用并评价他人的观点来表达自己的观点的情况。例如：  Leading scientists agree that global warming i">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://pic2.zhimg.com/v2-e14003c9fd8d85dc6854382bed0a8f69_b.png">
 <meta property="og:image" content="https://pic1.zhimg.com/v2-f119966b5f1bc898f8f388584cbb9f60_b.png">
 <meta property="og:image" content="https://pic3.zhimg.com/v2-fd39ff57aba6c7df039199136a12df92_b.png">
 <meta property="og:image" content="https://pic3.zhimg.com/v2-42ad507b0d1d9e4fd45412c16680b30a_b.png">
-<meta property="og:updated_time" content="2021-08-22T13:25:42.562Z">
+<meta property="og:updated_time" content="2021-08-22T13:33:47.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Reading Notes] Stance Detection (2)">
-<meta name="twitter:description" content="1. [EMNLP’20] DeSMOG: Detecting Stance in Media On Global Warming作者（Dan Jurafsky !!!哇）专门针对global warming这个话题做了一个数据集，强调在讨论该话题时，人们通常引用并评价他人的观点来表达自己的观点的情况。例如：  Leading scientists agree that global warmin">
+<meta name="twitter:description" content="[EMNLP’20] DeSMOG: Detecting Stance in Media On Global Warming作者（Dan Jurafsky !!!哇）专门针对global warming这个话题做了一个数据集，强调在讨论该话题时，人们通常引用并评价他人的观点来表达自己的观点的情况。例如：  Leading scientists agree that global warming i">
 <meta name="twitter:image" content="https://pic2.zhimg.com/v2-e14003c9fd8d85dc6854382bed0a8f69_b.png">
 
 
@@ -357,7 +357,7 @@
       
 
       
-        <h2 id="1-EMNLP’20-DeSMOG-Detecting-Stance-in-Media-On-Global-Warming"><a href="#1-EMNLP’20-DeSMOG-Detecting-Stance-in-Media-On-Global-Warming" class="headerlink" title="1. [EMNLP’20] DeSMOG: Detecting Stance in Media On Global Warming"></a>1. [EMNLP’20] DeSMOG: Detecting Stance in Media On Global Warming</h2><p>作者（Dan Jurafsky !!!哇）专门针对global warming这个话题做了一个数据集，强调在讨论该话题时，人们通常引用并评价他人的观点来表达自己的观点的情况。例如：</p>
+        <h2 id="EMNLP’20-DeSMOG-Detecting-Stance-in-Media-On-Global-Warming"><a href="#EMNLP’20-DeSMOG-Detecting-Stance-in-Media-On-Global-Warming" class="headerlink" title="[EMNLP’20] DeSMOG: Detecting Stance in Media On Global Warming"></a>[EMNLP’20] DeSMOG: Detecting Stance in Media On Global Warming</h2><p>作者（Dan Jurafsky !!!哇）专门针对global warming这个话题做了一个数据集，强调在讨论该话题时，人们通常引用并评价他人的观点来表达自己的观点的情况。例如：</p>
 <blockquote>
 <p><em>Leading</em> scientists <em>agree</em> that global warming is a serious concern. <em>Mistaken</em> scientists <em>claim</em> that global warming is serious.</p>
 </blockquote>
@@ -369,7 +369,7 @@
 </blockquote>
 <p>实验分析：作者利用种子词及WordNet扩展得到肯定词库(affirming devices)和怀疑词库(doubting devices)。对于问题一，实验结果表明在认同全球变暖的媒体论述中，self-affirming的比例远多于opponent-doubting，而在怀疑全球变暖的媒体论述中，二者比例几乎持平；对于问题二，双方分别有37%和38%的instance是不相符的，但是在GW-skeptical media(RL)中这些引用来源相比于GW-accepting(LL)广泛得多，同时作者还对双方使用的主张词（就是中间那个动词啦我也不知道怎么翻译）的差别进行了统计，总结出了发生以上不相符情况的常用词，例如acknowledge, admit, etc.</p>
 <p>这篇paper跟之前看的都不太一样，全篇没有提到什么新的模型，没有用普遍的数据集，但是却以一个独特的视角分析了Global warming这个单独的话题，很多语言学，社会学，统计上的分析，写的句子也有点难懂，第一遍的时候真的没看下去（我发现了，有没有公式我都看不下去哎）。感觉跟之前在B站看到Dan Jurafsky的一个访谈节目里对他的印象一样，他们都在研究一些真的有趣有用的东西，敏锐的观察和新颖的思考，提出并解决新的问题，而不是在什么数据集上刷SOTA，调模型。希望以后我也能像他们一样吧，这样的research才是有灵魂的。</p>
-<h2 id="2-EMNLP’20-Unsupervised-stance-detection-for-arguments-from-consequences"><a href="#2-EMNLP’20-Unsupervised-stance-detection-for-arguments-from-consequences" class="headerlink" title="2.  [EMNLP’20] Unsupervised stance detection for arguments from consequences"></a>2.  <strong>[EMNLP’20] Unsupervised stance detection for arguments from consequences</strong></h2><p>这篇paper时专门针对一种表达立场的模式做无监督的立场检测。具体来说，作者提到我们在表达观点时，经常提及某个事件发生的后果来支持我们的观点/反对他人的观点，即argument from consequences，具体来说</p>
+<h2 id="EMNLP’20-Unsupervised-stance-detection-for-arguments-from-consequences"><a href="#EMNLP’20-Unsupervised-stance-detection-for-arguments-from-consequences" class="headerlink" title="[EMNLP’20] Unsupervised stance detection for arguments from consequences"></a><strong>[EMNLP’20] Unsupervised stance detection for arguments from consequences</strong></h2><p>这篇paper时专门针对一种表达立场的模式做无监督的立场检测。具体来说，作者提到我们在表达观点时，经常提及某个事件发生的后果来支持我们的观点/反对他人的观点，即argument from consequences，具体来说</p>
 <blockquote>
 <p><em>If A is brought about, then good (bad) consequences will (may plausibly) occur</em>, and a conclusion <em>A should (not) be brought about</em>. </p>
 </blockquote>
@@ -379,11 +379,10 @@
 </blockquote>
 <p>然后作者先提取出以上三元组，利用规定好的pattern规则，实现无监督判断一个句子对于目标的立场。</p>
 <p><img src="https://pic1.zhimg.com/v2-f119966b5f1bc898f8f388584cbb9f60_b.png" alt="img"></p>
-<p>##3.  <strong>[WWW’19] From Stances’ Imbalance to Their HierarchicalRepresentation and Detection</strong> </p>
+<p>##<strong>[WWW’19] From Stances’ Imbalance to Their HierarchicalRepresentation and Detection</strong> </p>
 <p>适用于Fake news领域的stance detection，target对应claims（新闻标题），tweet对应evidence（新闻内容）。作者提出原来的数据存在类别数据量不平衡的问题，因此将agree, disagree, discuss合并为related这个类别，提出两层神经网络模型，第一层先判断是related还是unrelated，第二层判断是agree/disagree/discuss。同时，两层的误差传播有三种方式，1认为两层没有依赖关系，不联合传播误差；2认为两层有关系；3通过MMD这种算法来学习二者的依赖性判断是否传播误差。</p>
 <p><img src="https://pic3.zhimg.com/v2-fd39ff57aba6c7df039199136a12df92_b.png" alt="img"></p>
-<p>##4. <strong>[SIGIR’19] Modeling Transferable Topics for Cross-Target Stance Detection</strong> </p>
-<p>本文的任务是跨立场检测，提出在target之间有隐藏的话题(lantent topic)可以作为迁移的知识（target之间内在联系/共通点），利用无标注的target下的数据得到topic knowledge，作为memory融入到分类器中。一个弊端是，需要人工来判断是否target之间有隐藏的联系，例如本文只提到了两对相似的可以进行迁移的target（Feminist Movement与Legalization of Abortion， Hillary Clinton与Donald Trump），局限性太大，不能应对现实情况中，各种target无规律出现的情况。</p>
+<h2 id="SIGIR’19-Modeling-Transferable-Topics-for-Cross-Target-Stance-Detection"><a href="#SIGIR’19-Modeling-Transferable-Topics-for-Cross-Target-Stance-Detection" class="headerlink" title="[SIGIR’19] Modeling Transferable Topics for Cross-Target Stance Detection"></a><strong>[SIGIR’19] Modeling Transferable Topics for Cross-Target Stance Detection</strong></h2><p>本文的任务是跨立场检测，提出在target之间有隐藏的话题(lantent topic)可以作为迁移的知识（target之间内在联系/共通点），利用无标注的target下的数据得到topic knowledge，作为memory融入到分类器中。一个弊端是，需要人工来判断是否target之间有隐藏的联系，例如本文只提到了两对相似的可以进行迁移的target（Feminist Movement与Legalization of Abortion， Hillary Clinton与Donald Trump），局限性太大，不能应对现实情况中，各种target无规律出现的情况。</p>
 <p><img src="https://pic3.zhimg.com/v2-42ad507b0d1d9e4fd45412c16680b30a_b.png" alt="img"></p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li>DeSMOG: Detecting Stance in Media On Global Warming <a href="https://www.aclweb.org/anthology/2020.findings-emnlp.296" target="_blank" rel="noopener">https://www.aclweb.org/anthology/2020.findings-emnlp.296</a></li>
@@ -536,7 +535,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -561,7 +560,7 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="xiangli@stu.hit.edu.cn" title="Email" target="_blank">Email</a>
+                    <a href="mailto:xiangli@stu.hit.edu.cn" title="Email" target="_blank">Email</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
@@ -591,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-EMNLP’20-DeSMOG-Detecting-Stance-in-Media-On-Global-Warming"><span class="nav-number">1.</span> <span class="nav-text">1. [EMNLP’20] DeSMOG: Detecting Stance in Media On Global Warming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-EMNLP’20-Unsupervised-stance-detection-for-arguments-from-consequences"><span class="nav-number">2.</span> <span class="nav-text">2.  [EMNLP’20] Unsupervised stance detection for arguments from consequences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#EMNLP’20-DeSMOG-Detecting-Stance-in-Media-On-Global-Warming"><span class="nav-number">1.</span> <span class="nav-text">[EMNLP’20] DeSMOG: Detecting Stance in Media On Global Warming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EMNLP’20-Unsupervised-stance-detection-for-arguments-from-consequences"><span class="nav-number">2.</span> <span class="nav-text">[EMNLP’20] Unsupervised stance detection for arguments from consequences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SIGIR’19-Modeling-Transferable-Topics-for-Cross-Target-Stance-Detection"><span class="nav-number">3.</span> <span class="nav-text">[SIGIR’19] Modeling Transferable Topics for Cross-Target Stance Detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

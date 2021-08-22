@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Introduction:  本篇笔记主要是ACL’20的stance detection相关论文。stance detection中文叫做立场检测，任务目标是给定一段文本和一个话题/实体/事件等（target），判断该文本对于该话题是持支持、反对还是中立态度（favor/ against/ neutral）。封面图  Here we go —— 1. Enhancing Cross-target">
+<meta name="description" content="Introduction:  本篇笔记主要是ACL’20的stance detection相关论文。stance detection中文叫做立场检测，任务目标是给定一段文本和一个话题/实体/事件等（target），判断该文本对于该话题是持支持、反对还是中立态度（favor/ against/ neutral）。封面图  Here we go —— Enhancing Cross-target St">
 <meta name="keywords" content="NLP,Stance Detection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Reading Notes] Stance Detection (1)">
 <meta property="og:url" content="http://yoursite.com/2021/03/14/Reading-Notes-Stance-Detection-1/index.html">
 <meta property="og:site_name" content="Xiang Li">
-<meta property="og:description" content="Introduction:  本篇笔记主要是ACL’20的stance detection相关论文。stance detection中文叫做立场检测，任务目标是给定一段文本和一个话题/实体/事件等（target），判断该文本对于该话题是持支持、反对还是中立态度（favor/ against/ neutral）。封面图  Here we go —— 1. Enhancing Cross-target">
+<meta property="og:description" content="Introduction:  本篇笔记主要是ACL’20的stance detection相关论文。stance detection中文叫做立场检测，任务目标是给定一段文本和一个话题/实体/事件等（target），判断该文本对于该话题是持支持、反对还是中立态度（favor/ against/ neutral）。封面图  Here we go —— Enhancing Cross-target St">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://pic4.zhimg.com/v2-0432ad3f47ec9e102613f62cbde0b68f_b.png">
-<meta property="og:updated_time" content="2021-08-22T13:24:44.722Z">
+<meta property="og:updated_time" content="2021-08-22T13:36:45.092Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Reading Notes] Stance Detection (1)">
-<meta name="twitter:description" content="Introduction:  本篇笔记主要是ACL’20的stance detection相关论文。stance detection中文叫做立场检测，任务目标是给定一段文本和一个话题/实体/事件等（target），判断该文本对于该话题是持支持、反对还是中立态度（favor/ against/ neutral）。封面图  Here we go —— 1. Enhancing Cross-target">
+<meta name="twitter:description" content="Introduction:  本篇笔记主要是ACL’20的stance detection相关论文。stance detection中文叫做立场检测，任务目标是给定一段文本和一个话题/实体/事件等（target），判断该文本对于该话题是持支持、反对还是中立态度（favor/ against/ neutral）。封面图  Here we go —— Enhancing Cross-target St">
 <meta name="twitter:image" content="https://pic4.zhimg.com/v2-0432ad3f47ec9e102613f62cbde0b68f_b.png">
 
 
@@ -356,7 +356,7 @@
       
         <p><strong>Introduction:</strong>  本篇笔记主要是ACL’20的stance detection相关论文。stance detection中文叫做立场检测，任务目标是给定一段文本和一个话题/实体/事件等（target），判断该文本对于该话题是持支持、反对还是中立态度（favor/ against/ neutral）。封面图 </p>
 <p>Here we go ——</p>
-<h2 id="1-Enhancing-Cross-target-Stance-Detection-with-Transferable-Semantic-Emotion-Knowledge-（略读）"><a href="#1-Enhancing-Cross-target-Stance-Detection-with-Transferable-Semantic-Emotion-Knowledge-（略读）" class="headerlink" title="1. Enhancing Cross-target Stance Detection with Transferable Semantic-Emotion Knowledge   （略读）"></a><strong>1. Enhancing Cross-target Stance Detection with Transferable Semantic-Emotion Knowledge</strong>   （略读）</h2><p>这是一篇关于cross-target stance detection的论文，也就是说训练集中出现的话题target在测试集中没有出现，需要模型在训练集到测试集进行知识的迁移。适用场景为：无需大量费时费力的人工标注，根据已有的训练集得到的模型，可以直接应用在新的target上（众所周知，在如今的社交平台上，无时无刻不在产生新的target）。话说回来，列<strong>contribution</strong>：</p>
+<h2 id="Enhancing-Cross-target-Stance-Detection-with-Transferable-Semantic-Emotion-Knowledge-（略读）"><a href="#Enhancing-Cross-target-Stance-Detection-with-Transferable-Semantic-Emotion-Knowledge-（略读）" class="headerlink" title="Enhancing Cross-target Stance Detection with Transferable Semantic-Emotion Knowledge  （略读）"></a>Enhancing Cross-target Stance Detection with Transferable Semantic-Emotion Knowledge  （略读）</h2><p>这是一篇关于cross-target stance detection的论文，也就是说训练集中出现的话题target在测试集中没有出现，需要模型在训练集到测试集进行知识的迁移。适用场景为：无需大量费时费力的人工标注，根据已有的训练集得到的模型，可以直接应用在新的target上（众所周知，在如今的社交平台上，无时无刻不在产生新的target）。话说回来，列<strong>contribution</strong>：</p>
 <ul>
 <li>利用来自外部的语义（sematic）和情感词典（emotion lexicons）信息构建语义-情感异质图（semantic-emotion heterogeneous graph），并使用GCN来学习语义图表示。 </li>
 <li>将标准的LSTM cell中扩充了一个额外的记忆模块（memory unit），有效地将外部知识整合到分类器中。</li>
@@ -365,8 +365,8 @@
 <p>感觉现在很多工作都在做如何给模型融入外部知识，比较常见的就是融入知识图谱。这不，这篇paper便利用了SenticNet 融入语义词典，同时以word作为点，并根据语义关系连边；还利用了EmoLex 在前面形成的图中加入情感方面的语义信息（也就是再加点相关的点和边啦），以此构成一个图。作者认为这个图可以帮助模型在知识迁移过程中更好地区分出那些重要的词语。</p>
 <p><img src="https://pic4.zhimg.com/v2-0432ad3f47ec9e102613f62cbde0b68f_b.png" alt="img"></p>
 <p>个人认为，这种改进LSTM结构的想法还挺新鲜的（可能是我看的论文太少了之前没接触过），还用到了感觉最近很火的GCN来做图嵌入。方法和实验部分没有仔细读，就先不深入了。</p>
-<h2 id="2-Agreement-Prediction-of-Arguments-in-Cyber-Argumentation-for-Detecting-Stance-Polarity-and-Intensity-（略读）"><a href="#2-Agreement-Prediction-of-Arguments-in-Cyber-Argumentation-for-Detecting-Stance-Polarity-and-Intensity-（略读）" class="headerlink" title="2. Agreement Prediction of Arguments in Cyber Argumentation for Detecting Stance Polarity and Intensity （略读）"></a><strong>2. Agreement Prediction of Arguments in Cyber Argumentation for Detecting Stance Polarity and Intensity</strong> （略读）</h2><p>这篇文章一个主要的创新点在于提出一个新的任务，即stance intensity。上文说到的目前的stance detection任务都是做polarity分类，也就是三种不同的态度极性，而本文提出将文本表达的态度的程度用一种[-1, 1]的连续值表示（针对不同post之间的回应关系），能更好地在实际场景中进行分析。为此，本文还提出了一个新的dataset。</p>
-<h2 id="3-Will-They-Won’t-They-A-Very-Large-Dataset-for-Stance-Detection-on-Twitter-（略读）"><a href="#3-Will-They-Won’t-They-A-Very-Large-Dataset-for-Stance-Detection-on-Twitter-（略读）" class="headerlink" title="3.  Will-They-Won’t-They: A Very Large Dataset for Stance Detection on Twitter （略读）"></a>3.  <strong>Will-They-Won’t-They: A Very Large Dataset for Stance Detection on Twitter</strong> （略读）</h2><p>这篇paper同样也是提出了一个新的数据集，特点就是：规模非常大，专注于金融领域。相比于之前的数据集（几千的数据量），该数据集有51,284条tweet，平均每个target下有一万条左右的数据，用11个现有的模型在新数据集做实验，发现结果都有明显的下降，说明了该数据集的挑战性。同时，本文还提出了entertainment领域的数据，以此支持对domain adaptation的研究工作。</p>
+<h2 id="Agreement-Prediction-of-Arguments-in-Cyber-Argumentation-for-Detecting-Stance-Polarity-and-Intensity（略读）"><a href="#Agreement-Prediction-of-Arguments-in-Cyber-Argumentation-for-Detecting-Stance-Polarity-and-Intensity（略读）" class="headerlink" title="Agreement Prediction of Arguments in Cyber Argumentation for Detecting Stance Polarity and Intensity（略读）"></a>Agreement Prediction of Arguments in Cyber Argumentation for Detecting Stance Polarity and Intensity（略读）</h2><p>这篇文章一个主要的创新点在于提出一个新的任务，即stance intensity。上文说到的目前的stance detection任务都是做polarity分类，也就是三种不同的态度极性，而本文提出将文本表达的态度的程度用一种[-1, 1]的连续值表示（针对不同post之间的回应关系），能更好地在实际场景中进行分析。为此，本文还提出了一个新的dataset。</p>
+<h2 id="Will-They-Won’t-They-A-Very-Large-Dataset-for-Stance-Detection-on-Twitter-（略读）"><a href="#Will-They-Won’t-They-A-Very-Large-Dataset-for-Stance-Detection-on-Twitter-（略读）" class="headerlink" title="Will-They-Won’t-They: A Very Large Dataset for Stance Detection on Twitter （略读）"></a><strong>Will-They-Won’t-They: A Very Large Dataset for Stance Detection on Twitter</strong> （略读）</h2><p>这篇paper同样也是提出了一个新的数据集，特点就是：规模非常大，专注于金融领域。相比于之前的数据集（几千的数据量），该数据集有51,284条tweet，平均每个target下有一万条左右的数据，用11个现有的模型在新数据集做实验，发现结果都有明显的下降，说明了该数据集的挑战性。同时，本文还提出了entertainment领域的数据，以此支持对domain adaptation的研究工作。</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li>Stance Detection: A Survey <a href="https://dl.acm.org/doi/10.1145/3369026" target="_blank" rel="noopener">https://dl.acm.org/doi/10.1145/3369026</a></li>
 <li>Enhancing Cross-target Stance Detection with Transferable Semantic-Emotion Knowledge <a href="https://www.aclweb.org/anthology/2020.acl-main.291" target="_blank" rel="noopener">https://www.aclweb.org/anthology/2020.acl-main.291</a></li>
@@ -520,7 +520,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -545,7 +545,7 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="xiangli@stu.hit.edu.cn" title="Email" target="_blank">Email</a>
+                    <a href="mailto:xiangli@stu.hit.edu.cn" title="Email" target="_blank">Email</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
@@ -575,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Enhancing-Cross-target-Stance-Detection-with-Transferable-Semantic-Emotion-Knowledge-（略读）"><span class="nav-number">1.</span> <span class="nav-text">1. Enhancing Cross-target Stance Detection with Transferable Semantic-Emotion Knowledge   （略读）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Agreement-Prediction-of-Arguments-in-Cyber-Argumentation-for-Detecting-Stance-Polarity-and-Intensity-（略读）"><span class="nav-number">2.</span> <span class="nav-text">2. Agreement Prediction of Arguments in Cyber Argumentation for Detecting Stance Polarity and Intensity （略读）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Will-They-Won’t-They-A-Very-Large-Dataset-for-Stance-Detection-on-Twitter-（略读）"><span class="nav-number">3.</span> <span class="nav-text">3.  Will-They-Won’t-They: A Very Large Dataset for Stance Detection on Twitter （略读）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Enhancing-Cross-target-Stance-Detection-with-Transferable-Semantic-Emotion-Knowledge-（略读）"><span class="nav-number">1.</span> <span class="nav-text">Enhancing Cross-target Stance Detection with Transferable Semantic-Emotion Knowledge  （略读）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Agreement-Prediction-of-Arguments-in-Cyber-Argumentation-for-Detecting-Stance-Polarity-and-Intensity（略读）"><span class="nav-number">2.</span> <span class="nav-text">Agreement Prediction of Arguments in Cyber Argumentation for Detecting Stance Polarity and Intensity（略读）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Will-They-Won’t-They-A-Very-Large-Dataset-for-Stance-Detection-on-Twitter-（略读）"><span class="nav-number">3.</span> <span class="nav-text">Will-They-Won’t-They: A Very Large Dataset for Stance Detection on Twitter （略读）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
