@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="NLP,Sacasm detection,Multimodal,">
+  <meta name="keywords" content="Contrastive Learning,">
 
 
 
@@ -79,15 +79,18 @@
 
 
 
-<meta name="keywords" content="NLP,Sacasm detection,Multimodal">
+<meta name="description" content="Foreword对比学习（contrastive learning）最近也算是很火了，虽然之前做过了相关工作，但是感觉自己的理解并不是特别深入，所以这几天在更深入地补对比学习的论文。这次的论文笔记的内容是CVPR2021的一篇论文“Understanding the Behaviour of Contrastive Loss”。与以前看的很多讲模型这类论文不同，这篇paper没有模型，没有SOTA">
+<meta name="keywords" content="Contrastive Learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Group Pre] Towards Multimodal Sarcasm Detection">
-<meta property="og:url" content="http://yoursite.com/2020/09/22/Group-Pre-Towards-Multimodal-Sarcasm-Detection/index.html">
+<meta property="og:title" content="[Reading Notes] Understanding the Behaviour of Contrastive Loss">
+<meta property="og:url" content="http://yoursite.com/2021/08/24/Reading-Notes-Understanding-the-Behaviour-of-Contrastive-Loss/index.html">
 <meta property="og:site_name" content="Xiang Li">
+<meta property="og:description" content="Foreword对比学习（contrastive learning）最近也算是很火了，虽然之前做过了相关工作，但是感觉自己的理解并不是特别深入，所以这几天在更深入地补对比学习的论文。这次的论文笔记的内容是CVPR2021的一篇论文“Understanding the Behaviour of Contrastive Loss”。与以前看的很多讲模型这类论文不同，这篇paper没有模型，没有SOTA">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-08-22T13:08:01.430Z">
+<meta property="og:updated_time" content="2021-08-24T14:05:30.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Group Pre] Towards Multimodal Sarcasm Detection">
+<meta name="twitter:title" content="[Reading Notes] Understanding the Behaviour of Contrastive Loss">
+<meta name="twitter:description" content="Foreword对比学习（contrastive learning）最近也算是很火了，虽然之前做过了相关工作，但是感觉自己的理解并不是特别深入，所以这几天在更深入地补对比学习的论文。这次的论文笔记的内容是CVPR2021的一篇论文“Understanding the Behaviour of Contrastive Loss”。与以前看的很多讲模型这类论文不同，这篇paper没有模型，没有SOTA">
 
 
 
@@ -117,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/09/22/Group-Pre-Towards-Multimodal-Sarcasm-Detection/">
+  <link rel="canonical" href="http://yoursite.com/2021/08/24/Reading-Notes-Understanding-the-Behaviour-of-Contrastive-Loss/">
 
 
 
 
 
-  <title>[Group Pre] Towards Multimodal Sarcasm Detection | Xiang Li</title>
+  <title>[Reading Notes] Understanding the Behaviour of Contrastive Loss | Xiang Li</title>
   
 
 
@@ -260,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/22/Group-Pre-Towards-Multimodal-Sarcasm-Detection/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/24/Reading-Notes-Understanding-the-Behaviour-of-Contrastive-Loss/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xiang Li">
@@ -277,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[Group Pre] Towards Multimodal Sarcasm Detection</h1>
+          <h1 class="post-title" itemprop="name headline">[Reading Notes] Understanding the Behaviour of Contrastive Loss</h1>
         
 
         <div class="post-meta">
@@ -289,8 +292,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-22T21:00:01+08:00">
-                2020-09-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-08-24T16:54:08+08:00">
+                2021-08-24
               </time>
             
 
@@ -312,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Group-Meeting-Presentation/" itemprop="url" rel="index">
-                    <span itemprop="name">Group Meeting Presentation</span>
+                  <a href="/categories/Reading-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Reading Notes</span>
                   </a>
                 </span>
 
@@ -349,15 +352,10 @@
       
 
       
-        <p><br> 
-
-	<div class="row">
-    <embed src="https://south7x.github.io/pdf/2020-9-22.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
- </p>
-<p><br></p>
+        <h1 id="Foreword"><a href="#Foreword" class="headerlink" title="Foreword"></a>Foreword</h1><p>对比学习（contrastive learning）最近也算是很火了，虽然之前做过了相关工作，但是感觉自己的理解并不是特别深入，所以这几天在更深入地补对比学习的论文。这次的论文笔记的内容是CVPR2021的一篇论文“Understanding the Behaviour of Contrastive Loss”。与以前看的很多讲模型这类论文不同，这篇paper没有模型，没有SOTA，而是对对比学习的loss中的temperature参数这个点进行深入剖析，更多的是偏数学理论的内容，并做实验进行验证，以此来达到题目所说的理解对比学习损失函数的目的。虽然知乎上已经有小伙伴发了这篇论文的笔记了，我还是决定自己写一遍，对论文的理解和印象可能更深刻一点。</p>
+<h1 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h1><ul>
+<li>之前的研究者提出均匀性（Uniformity）是对比学习的一个重要性质，。对于无监督对比学习而言，embedding分布的均匀性</li>
+</ul>
 
       
     </div>
@@ -375,11 +373,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
-            <a href="/tags/Sacasm-detection/" rel="tag"># Sacasm detection</a>
-          
-            <a href="/tags/Multimodal/" rel="tag"># Multimodal</a>
+            <a href="/tags/Contrastive-Learning/" rel="tag"># Contrastive Learning</a>
           
         </div>
       
@@ -392,8 +386,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/07/Numberical-Analysis/" rel="next" title="Numberical Analysis Notes">
-                <i class="fa fa-chevron-left"></i> Numberical Analysis Notes
+              <a href="/2021/06/17/Reading-Notes-Fact-Extraction-Verification-1/" rel="next" title="[Reading Notes] Fact Extraction & Verification (1)">
+                <i class="fa fa-chevron-left"></i> [Reading Notes] Fact Extraction & Verification (1)
               </a>
             
           </div>
@@ -401,10 +395,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/11/03/Group-Pre-Zero-Shot-Stance-Detection/" rel="prev" title="[Group Pre] Zero-Shot Stance Detection">
-                [Group Pre] Zero-Shot Stance Detection <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -456,8 +446,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -535,6 +534,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Foreword"><span class="nav-number">1.</span> <span class="nav-text">Foreword</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Motivation"><span class="nav-number">2.</span> <span class="nav-text">Motivation</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
