@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="Also see in my zhihu(知乎): https://zhuanlan.zhihu.com/p/406628964 Foreword这次的论文笔记的内容是CVPR’21的一篇论文“Understanding the Behaviour of Contrastive Loss”[1]。与以前看的很多讲模型这类论文不同，这篇paper没有模型，没有SOTA，而是对对比学习的loss中的t">
+<meta name="description" content="Also see in my zhihu(知乎) page: https://zhuanlan.zhihu.com/p/406628964 Foreword这次的论文笔记的内容是CVPR’21的一篇论文“Understanding the Behaviour of Contrastive Loss”[1]。与以前看的很多讲模型这类论文不同，这篇paper没有模型，没有SOTA，而是对对比学习的lo">
 <meta name="keywords" content="Contrastive Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Reading Notes] Understanding the Behaviour of Contrastive Loss">
 <meta property="og:url" content="http://yoursite.com/2021/09/03/Reading-Notes-Understanding-the-Behaviour-of-Contrastive-Loss/index.html">
 <meta property="og:site_name" content="Xiang Li">
-<meta property="og:description" content="Also see in my zhihu(知乎): https://zhuanlan.zhihu.com/p/406628964 Foreword这次的论文笔记的内容是CVPR’21的一篇论文“Understanding the Behaviour of Contrastive Loss”[1]。与以前看的很多讲模型这类论文不同，这篇paper没有模型，没有SOTA，而是对对比学习的loss中的t">
+<meta property="og:description" content="Also see in my zhihu(知乎) page: https://zhuanlan.zhihu.com/p/406628964 Foreword这次的论文笔记的内容是CVPR’21的一篇论文“Understanding the Behaviour of Contrastive Loss”[1]。与以前看的很多讲模型这类论文不同，这篇paper没有模型，没有SOTA，而是对对比学习的lo">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2021/09/03/Reading-Notes-Understanding-the-Behaviour-of-Contrastive-Loss/alignment.png">
 <meta property="og:image" content="http://yoursite.com/2021/09/03/Reading-Notes-Understanding-the-Behaviour-of-Contrastive-Loss/uniform.png">
@@ -99,10 +99,10 @@
 <meta property="og:image" content="http://yoursite.com/2021/09/03/Reading-Notes-Understanding-the-Behaviour-of-Contrastive-Loss/hard_1.png">
 <meta property="og:image" content="http://yoursite.com/2021/09/03/Reading-Notes-Understanding-the-Behaviour-of-Contrastive-Loss/hard_2.png">
 <meta property="og:image" content="http://yoursite.com/2021/09/03/Reading-Notes-Understanding-the-Behaviour-of-Contrastive-Loss/hypersphere.png">
-<meta property="og:updated_time" content="2021-09-07T13:48:30.438Z">
+<meta property="og:updated_time" content="2021-09-08T02:33:58.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Reading Notes] Understanding the Behaviour of Contrastive Loss">
-<meta name="twitter:description" content="Also see in my zhihu(知乎): https://zhuanlan.zhihu.com/p/406628964 Foreword这次的论文笔记的内容是CVPR’21的一篇论文“Understanding the Behaviour of Contrastive Loss”[1]。与以前看的很多讲模型这类论文不同，这篇paper没有模型，没有SOTA，而是对对比学习的loss中的t">
+<meta name="twitter:description" content="Also see in my zhihu(知乎) page: https://zhuanlan.zhihu.com/p/406628964 Foreword这次的论文笔记的内容是CVPR’21的一篇论文“Understanding the Behaviour of Contrastive Loss”[1]。与以前看的很多讲模型这类论文不同，这篇paper没有模型，没有SOTA，而是对对比学习的lo">
 <meta name="twitter:image" content="http://yoursite.com/2021/09/03/Reading-Notes-Understanding-the-Behaviour-of-Contrastive-Loss/alignment.png">
 
 
@@ -365,7 +365,7 @@
       
 
       
-        <p>Also see in my zhihu(知乎): <a href="https://zhuanlan.zhihu.com/p/406628964" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/406628964</a></p>
+        <p>Also see in my zhihu(知乎) page: <a href="https://zhuanlan.zhihu.com/p/406628964" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/406628964</a></p>
 <h1 id="Foreword"><a href="#Foreword" class="headerlink" title="Foreword"></a>Foreword</h1><p>这次的论文笔记的内容是CVPR’21的一篇论文“Understanding the Behaviour of Contrastive Loss”[1]。与以前看的很多讲模型这类论文不同，这篇paper没有模型，没有SOTA，而是对对比学习的loss中的temperature参数这个点进行深入剖析，更多的是偏数学理论的内容，并做实验进行验证，以此来达到题目所说的理解对比学习损失函数的目的。虽然知乎上已经有了这篇论文的笔记了，我还是决定自己写一遍，对论文的理解和印象可能更深刻一点。</p>
 <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>在写这篇论文笔记之前，我想先简单写一写对另一篇ICML’20的论文“Understanding Contrastive Representation Learning through Alignment and Uniformity on the Hypersphere”[2]的一点背景 ，因为CVPR这篇论文算是一定程度上Follow了他们的工作。</p>
 <p>ICML这篇论文提出了两个对比学习的重要特性：Alignment和Uniformity. 定义如下：</p>
