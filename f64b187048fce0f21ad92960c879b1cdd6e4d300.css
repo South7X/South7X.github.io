@@ -310,10 +310,10 @@ td, th {
     color: #ccc !important
     }
 .notion-desktop-drag-area {
-    -webkit-app-region: drag
+    app-region: drag
     }
 .notion-desktop-drag-area [role=button], .notion-desktop-drag-area [role=link], .notion-desktop-drag-area input {
-    -webkit-app-region: no-drag
+    app-region: no-drag
     }
 .notion-mobile * {
     -webkit-tap-highlight-color: transparent
@@ -349,6 +349,15 @@ html.notion-front-page .notion-app-inner {
     height: auto
     }
 [contenteditable]:empty:after {
+    content: attr(placeholder)
+    }
+[contenteditable] .empty-content-editable-selection-target:before {
+    content: attr(placeholder);
+    left: 0;
+    position: absolute;
+    width: max-content
+    }
+.form-question-title .pseudoAfter[contenteditable]:empty:before {
     content: attr(placeholder)
     }
 #intercom-container {
@@ -853,6 +862,12 @@ input[type=number].input-hide-arrows {
     display: grid;
     width: 100%
     }
+.layout.layout-center-peek {
+    transition: grid-template-columns 0.2s ease-in-out
+    }
+.layout.layout-center-peek-with-layout-panel {
+    transition: grid-template-columns 0.2s ease-in-out
+    }
 .home-content:before {
     content: " ";
     filter: blur(24px);
@@ -899,9 +914,6 @@ input[type=number].input-hide-arrows {
     gap: inherit;
     grid-column: content
     }
-.layout-content-with-divider {
-    margin-bottom: 8px
-    }
 body.dark .layout-content-with-divider {
     border-bottom: 1px solid hsla(0, 0%, 100%, 0.094)
     }
@@ -912,7 +924,7 @@ body.dark .layout-content-with-divider {
     min-width: 50px
     }
 .automation-list-item > * {
-    border-radius: 6px;
+    border-radius: 10px;
     width: 100%
     }
 .automation-list-item:not(.automation-list-item-narrow) {
@@ -945,10 +957,10 @@ body.dark .layout-content-with-divider {
     cursor: grab;
     opacity: 0
     }
-.automation-list-item-base-step:not(.automation-list-item-base-step--disabled):hover .automation-list-item-icon {
+.automation-list-item-base-step:not(.automation-list-item-base-step--drag-disabled):hover .automation-list-item-icon {
     opacity: 0
     }
-.automation-list-item-base-step:not(.automation-list-item-base-step--disabled):hover .automation-list-item-drag-handle {
+.automation-list-item-base-step:not(.automation-list-item-base-step--drag-disabled):hover .automation-list-item-drag-handle {
     opacity: 1
     }
 .automation-list-item-drag-handle:active {
@@ -966,6 +978,9 @@ body.dark .layout-content-with-divider {
     }
 .temporary-dictation-annotation {
     opacity: 0.3
+    }
+.marketplace-checkout-email-element {
+    pointer-events: none
     }
 @keyframes slideInFromLeft {
     0% {
@@ -1169,16 +1184,22 @@ body.dark .layout-content-with-divider {
 .tx-uimedium-13-semi {
     font-weight: 590
     }
-.tx-uiheader-17-semi {
-    font-weight: 590
+.tx-uiheader-17-reg {
+    font-weight: 400
     }
-.tx-uiheader-17-med, .tx-uiheader-17-semi {
+.tx-uiheader-17-reg, .tx-uiheader-17-semi {
     font-size: 17px;
     font-style: normal;
     line-height: 22px
     }
+.tx-uiheader-17-semi {
+    font-weight: 590
+    }
 .tx-uiheader-17-med {
-    font-weight: 510
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 510;
+    line-height: 22px
     }
 .tx-uititle-26-bold {
     font-size: 26px;
@@ -1219,6 +1240,12 @@ body.dark .layout-content-with-divider {
     }
 .tx-uismall-12-reg {
     font-weight: 400
+    }
+.tx-uismall-12-semi {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 590;
+    line-height: 16px
     }
 .radio-button:checked + span:after {
     opacity: 1
@@ -1387,6 +1414,9 @@ td.rdtMonth:hover, td.rdtYear:hover {
 * {
     box-sizing: border-box
     }
+foreignObject > * {
+    isolation: auto
+    }
 table > tr {
     vertical-align: top
     }
@@ -1504,6 +1534,7 @@ table > tr {
     scrollbar-width: none
     }
 .hide-scrollbar::-webkit-scrollbar {
+    display: none;
     height: 0 !important;
     width: 0 !important
     }
