@@ -22,12 +22,22 @@ jobs:
           path: pages_repo
       - name: Download and install chromedriver
         run: sudo apt install chromium-chromedriver
-      - name: Install Loconotion dependencies
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Create & activate virtualenv, install dependencies
+        shell: bash
         run: |
+          python -m venv .venv
+          source .venv/bin/activate
           python -m pip install --upgrade pip
           pip install --ignore-installed --force-reinstall -r loconotion/requirements.txt
+          
       - name: Run Loconotion
         run: |
+          source .venv/bin/activate
           python3 loconotion/loconotion --chromedriver chromedriver "pages_repo/site.toml"
       - name: Push to GitHub pages
         run: |
