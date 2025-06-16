@@ -254,20 +254,18 @@ td, th {
 .notion-token-remove-button:hover {
     opacity: 0.8
     }
-.notion-external-object-token.notion-enable-hover:hover, .notion-page-mention-token.notion-enable-hover:hover {
+.notion-external-object-token.notion-enable-hover:hover, .notion-link-mention-token.notion-enable-hover:hover, .notion-page-mention-token.notion-enable-hover:hover, .notion-team-mention-token.notion-enable-hover:hover {
     border-radius: 1px;
     cursor: pointer !important
     }
 .notion-citation-mention-token {
-    background-color: #acaba9;
-    color: #fff
+    background-color: initial
     }
 .notion-dark-theme .notion-citation-mention-token {
-    background-color: #333;
-    color: #fff
+    background-color: initial
     }
-.notion-citation-mention-token.notion-enable-hover:hover {
-    background-color: #2383e2
+.notion-focusable-within:focus-within {
+    box-shadow: inset 0 0 0 1px #2383e2, 0 0 0 1px #2383e2 !important
     }
 .notion-cursor-default {
     cursor: default
@@ -340,7 +338,7 @@ html.notion-mobile:not(.notion-front-page) body:not(.notion-disable-webkit-user-
 html.notion-front-page, html.notion-front-page #notion-app, html.notion-front-page body {
     background: #fffefc;
     overflow-x: initial;
-    overflow-y: initial
+    overflow-y: auto
     }
 html.notion-front-page body.disable-scroll {
     overflow: hidden
@@ -397,17 +395,6 @@ html.notion-front-page .notion-app-inner {
         opacity: 1;
         transform: translateY(0)
         }
-    }
-.loading-spinner {
-    -webkit-animation: rotate 1s linear infinite;
-    animation: rotate 1s linear infinite;
-    display: block;
-    height: 1em;
-    opacity: 0.5;
-    pointer-events: none;
-    -webkit-transform-origin: center center;
-    transform-origin: center center;
-    width: 1em
     }
 @-webkit-keyframes rotate {
     0% {
@@ -523,6 +510,26 @@ html.notion-front-page .notion-app-inner {
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-name: text-shimmer-fade-in;
+    animation-timing-function: ease-in-out;
+    opacity: 0.1
+    }
+@keyframes text-shimmer-fade-in-darker {
+    0% {
+        opacity: .6
+        } 25% {
+        opacity: 1
+        } 30% {
+        opacity: 1
+        } 55% {
+        opacity: .6
+        } to {
+        opacity: .6
+        }
+    }
+.notion-shimmer-text-darker {
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-name: text-shimmer-fade-in-darker;
     animation-timing-function: ease-in-out;
     opacity: 0.1
     }
@@ -672,6 +679,17 @@ html.notion-front-page .notion-app-inner {
     }
 .highcharts-legend-item > span {
     max-width: 200px
+    }
+.notion-chart-clickable .highcharts-tooltip {
+    cursor: pointer !important
+    }
+.notion-chart-clickable .highcharts-crosshair {
+    cursor: pointer !important;
+    pointer-events: auto !important
+    }
+.notion-chart-clickable .highcharts-plot-background {
+    cursor: pointer !important;
+    pointer-events: all !important
     }
 input[type=range] {
     -webkit-appearance: none
@@ -858,6 +876,142 @@ input[type=number].input-hide-arrows {
 .autolayout-row.autolayout-space {
     justify-content: space-between
     }
+.formula-error-underline {
+    text-decoration: underline wavy red !important;
+    text-decoration-skip-ink: none !important
+    }
+.automation-list-item {
+    min-width: 50px;
+    padding-bottom: 8px
+    }
+.automation-list-item .automation-list-item-base-step {
+    border-radius: 10px;
+    width: 100%
+    }
+.automation-list-item-drag-handle, .automation-list-item-icon {
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity 0.1s ease
+    }
+.automation-list-item-icon {
+    opacity: 1
+    }
+.automation-list-item-drag-handle {
+    cursor: grab;
+    opacity: 0
+    }
+.automation-list-item-base-step:not(.automation-list-item-base-step--drag-disabled):hover .automation-list-item-icon {
+    opacity: 0
+    }
+.automation-list-item-base-step:not(.automation-list-item-base-step--drag-disabled):hover .automation-list-item-drag-handle {
+    opacity: 1
+    }
+.automation-list-item-drag-handle:active {
+    cursor: grabbing
+    }
+.app-builder-notification-activity--dark a {
+    color: hsla(0, 0%, 100%, 0.445)
+    }
+@keyframes selectedOutlineScale {
+    0%, to {
+        outline: 2px solid #ffcd38
+        } 50% {
+        outline-width: 5px
+        }
+    }
+.in-page-find-selected-highlight-match {
+    animation: selectedOutlineScale 0.15s ease-in-out
+    }
+.temporary-dictation-annotation {
+    opacity: 0.3
+    }
+.marketplace-checkout-email-element {
+    pointer-events: none
+    }
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-4px)
+        } to {
+        opacity: 1;
+        transform: translateX(0)
+        }
+    }
+@keyframes template-preview-column-focus-in {
+    0% {
+        filter: blur(6px);
+        opacity: 0
+        } to {
+        filter: blur(0);
+        opacity: 1
+        }
+    }
+@keyframes template-preview-column-focus-out {
+    0% {
+        filter: blur(.01);
+        opacity: 1
+        } to {
+        filter: blur(6px);
+        min-width: 0;
+        opacity: 0
+        }
+    }
+.quickActionContainer:empty {
+    visibility: hidden
+    }
+.popup-origin-wrapper:has(svg) > * {
+    transform: translatez(0)
+    }
+@property - -shimmer-text-faded-color {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #0f0
+    }
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+        } to {
+        transform: rotate(1turn)
+        }
+    }
+.citation-annotation-token {
+    height: 12px !important;
+    width: 12px !important
+    }
+.inference-transcript-chat-step .citation-annotation-token {
+    height: 14px !important;
+    width: 14px !important
+    }
+.inference-transcript-chat-step .citation-annotation-anchor {
+    font-size: 12px;
+    height: 22px;
+    margin-bottom: -2px;
+    margin-left: 2px;
+    margin-right: 0;
+    min-width: 22px
+    }
+.citation-annotation-anchor {
+    font-size: 10px;
+    height: 18px;
+    margin-bottom: -2px;
+    margin-left: 2px;
+    margin-right: 1px;
+    min-width: 18px
+    }
+.inference-transcript-chat-step .citation-annotation-span {
+    font-size: 12px;
+    height: 20px;
+    margin-bottom: -3px;
+    margin-left: 2px;
+    min-width: 20px
+    }
+.citation-annotation-span {
+    font-size: 10px;
+    height: 16px;
+    margin-left: 4px;
+    min-width: 16px
+    }
 .layout {
     display: grid;
     width: 100%
@@ -867,6 +1021,12 @@ input[type=number].input-hide-arrows {
     }
 .layout.layout-center-peek-with-layout-panel {
     transition: grid-template-columns 0.2s ease-in-out
+    }
+.layout.layout-fullscreen-ai {
+    max-height: 100%
+    }
+.layout.layout-narrowscreen-ai {
+    max-height: 100%
     }
 .home-content:before {
     content: " ";
@@ -920,80 +1080,6 @@ body.dark .layout-content-with-divider {
 .layout-editor {
     padding-top: 5px
     }
-.automation-list-item {
-    min-width: 50px
-    }
-.automation-list-item > * {
-    border-radius: 10px;
-    width: 100%
-    }
-.automation-list-item:not(.automation-list-item-narrow) {
-    padding-bottom: 8px
-    }
-.automation-list-item-narrow > * {
-    border-radius: 0
-    }
-.automation-list-item-narrow:first-child > * {
-    border-start-end-radius: 6px;
-    border-start-start-radius: 6px
-    }
-.automation-list-item-narrow:last-child > * {
-    border-end-end-radius: 6px;
-    border-end-start-radius: 6px
-    }
-.automation-list-item-narrow + .automation-list-item-narrow {
-    margin-block-start: -1px
-    }
-.automation-list-item-drag-handle, .automation-list-item-icon {
-    left: 0;
-    position: absolute;
-    top: 0;
-    transition: opacity 0.1s ease
-    }
-.automation-list-item-icon {
-    opacity: 1
-    }
-.automation-list-item-drag-handle {
-    cursor: grab;
-    opacity: 0
-    }
-.automation-list-item-base-step:not(.automation-list-item-base-step--drag-disabled):hover .automation-list-item-icon {
-    opacity: 0
-    }
-.automation-list-item-base-step:not(.automation-list-item-base-step--drag-disabled):hover .automation-list-item-drag-handle {
-    opacity: 1
-    }
-.automation-list-item-drag-handle:active {
-    cursor: grabbing
-    }
-@keyframes selectedOutlineScale {
-    0%, to {
-        outline: 2px solid #ffcd38
-        } 50% {
-        outline-width: 5px
-        }
-    }
-.in-page-find-selected-highlight-match {
-    animation: selectedOutlineScale 0.15s ease-in-out
-    }
-.temporary-dictation-annotation {
-    opacity: 0.3
-    }
-.marketplace-checkout-email-element {
-    pointer-events: none
-    }
-@keyframes slideInFromLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-4px)
-        } to {
-        opacity: 1;
-        transform: translateX(0)
-        }
-    }
-.quickActionContainer:empty {
-    visibility: hidden
-    }
 .tx-agate-10-regular {
     font-weight: 400
     }
@@ -1003,7 +1089,7 @@ body.dark .layout-content-with-divider {
     line-height: 13px
     }
 .tx-agate-10-medium {
-    font-weight: 510
+    font-weight: 500
     }
 .tx-body-12-med {
     font-size: 12px;
@@ -1016,7 +1102,7 @@ body.dark .layout-content-with-divider {
     }
 .tx-body-13-med {
     font-size: 13px;
-    font-weight: 510;
+    font-weight: 500;
     line-height: 16px
     }
 .tx-body-13-reg {
@@ -1031,13 +1117,13 @@ body.dark .layout-content-with-divider {
     }
 .tx-body-14-med {
     font-size: 14px;
-    font-weight: 510;
+    font-weight: 500;
     line-height: 18px
     }
 .tx-body-14-reg {
     font-size: 14px;
     font-weight: 400;
-    line-height: 18px
+    line-height: 20px
     }
 .tx-body-14-semi {
     font-size: 14px;
@@ -1094,21 +1180,35 @@ body.dark .layout-content-with-divider {
     font-weight: 400;
     line-height: 21px
     }
+.tx-ios-footnote-13-reg {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px
+    }
 .tx-ios-caption-12-reg {
     font-size: 12px;
     font-weight: 400;
     line-height: 16px
     }
+.tx-ios-subhead-15-reg {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px
+    }
 .tx-ios-subhead-15-med-c {
     font-size: 15px;
-    font-weight: 510;
-    letter-spacing: -0.24px;
+    font-weight: 500;
     line-height: normal
     }
-.tx-ios-title-3-bold {
+.tx-ios-title-3-semibold {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 590;
     line-height: 25px
+    }
+.tx-page-content-h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 31.2px
     }
 .tx-page-content-h3 {
     font-size: 20px;
@@ -1134,8 +1234,7 @@ body.dark .layout-content-with-divider {
     line-height: 25px
     }
 .tx-uititle-22-semibold {
-    font-weight: 590;
-    letter-spacing: -0.26px
+    font-weight: 590
     }
 .tx-title-22-bold, .tx-uititle-22-semibold {
     font-size: 22px;
@@ -1143,14 +1242,12 @@ body.dark .layout-content-with-divider {
     line-height: 26px
     }
 .tx-title-22-bold {
-    font-weight: 700;
-    letter-spacing: -0.264px
+    font-weight: 700
     }
 .tx-title-22-semi {
     font-size: 22px;
     font-style: normal;
     font-weight: 590;
-    letter-spacing: -0.1px;
     line-height: 26px
     }
 .tx-title-24-bold {
@@ -1160,6 +1257,13 @@ body.dark .layout-content-with-divider {
     letter-spacing: 0.208px;
     line-height: 28px
     }
+.tx-title-24-semi {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 590;
+    letter-spacing: 0.21px;
+    line-height: 32px
+    }
 .tx-title-26-bold {
     font-size: 26px;
     font-style: normal;
@@ -1167,38 +1271,56 @@ body.dark .layout-content-with-divider {
     line-height: 32px
     }
 .tx-uimini-10-semi {
+    font-weight: 590
+    }
+.tx-uimini-10-med, .tx-uimini-10-semi {
     font-size: 10px;
     font-style: normal;
-    font-weight: 590;
+    letter-spacing: 0.12px;
+    line-height: 13px
+    }
+.tx-uimini-10-med {
+    font-weight: 500
+    }
+.tx-uimini-10-reg {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
     letter-spacing: 0.12px;
     line-height: 13px
     }
 .tx-uimedium-13-reg {
     font-weight: 400
     }
-.tx-uimedium-13-reg, .tx-uimedium-13-semi {
+.tx-uimedium-13-med, .tx-uimedium-13-reg {
     font-size: 13px;
     font-style: normal;
-    line-height: 16px
+    line-height: 18px
+    }
+.tx-uimedium-13-med {
+    font-weight: 500
     }
 .tx-uimedium-13-semi {
-    font-weight: 590
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 590;
+    line-height: 18px
     }
-.tx-uiheader-17-reg {
+.tx-uiheading-17-reg {
     font-weight: 400
     }
-.tx-uiheader-17-reg, .tx-uiheader-17-semi {
+.tx-uiheading-17-reg, .tx-uiheading-17-semi {
     font-size: 17px;
     font-style: normal;
     line-height: 22px
     }
-.tx-uiheader-17-semi {
+.tx-uiheading-17-semi {
     font-weight: 590
     }
-.tx-uiheader-17-med {
+.tx-uiheading-17-med {
     font-size: 17px;
     font-style: normal;
-    font-weight: 510;
+    font-weight: 500;
     line-height: 22px
     }
 .tx-uititle-26-bold {
@@ -1219,7 +1341,7 @@ body.dark .layout-content-with-divider {
 .tx-uiregular-14-med, .tx-uiregular-14-reg {
     font-size: 14px;
     font-style: normal;
-    line-height: 18px
+    line-height: 20px
     }
 .tx-uiregular-14-reg {
     font-weight: 400
@@ -1228,7 +1350,7 @@ body.dark .layout-content-with-divider {
     font-size: 14px;
     font-style: normal;
     font-weight: 590;
-    line-height: 18px
+    line-height: 20px
     }
 .tx-uismall-12-med {
     font-weight: 500
@@ -1412,9 +1534,10 @@ td.rdtMonth:hover, td.rdtYear:hover {
     outline: 0
     }
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
+    isolation: isolate
     }
-foreignObject > * {
+foreignObject * {
     isolation: auto
     }
 table > tr {
@@ -1448,6 +1571,11 @@ table > tr {
     }
 [contenteditable] {
     -webkit-tap-highlight-color: transparent
+    }
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0
     }
 @keyframes pulse-ring {
     0% {
@@ -1517,11 +1645,45 @@ table > tr {
         transform: translatey(0)
         }
     }
+@keyframes slide-up-small {
+    0% {
+        transform: translateY(5px)
+        } to {
+        transform: translateY(0)
+        }
+    }
 .home-tile-fade-up-in {
     animation-duration: 1.5s;
     animation-fill-mode: both;
     animation-name: home-tile-slide-up, fadeIn;
     animation-timing-function: ease-in-out
+    }
+.slide-up-small {
+    animation-duration: 0.75s;
+    animation-fill-mode: both;
+    animation-name: slide-up-small;
+    animation-timing-function: cubic-bezier(0.02, 1.2, 0.2, 0.92)
+    }
+@keyframes partialFadeIn {
+    0% {
+        opacity: .5
+        } to {
+        opacity: 1
+        }
+    }
+@keyframes partialFadeOut {
+    0% {
+        opacity: 1
+        } to {
+        opacity: .5
+        }
+    }
+.home-tile-fade-in {
+    animation: partialFadeIn 0.5s ease-in-out
+    }
+.home-tile-fade-out {
+    animation: partialFadeOut 0.5s ease-in-out;
+    opacity: 0.5
     }
 .front-fadein-slow {
     animation: fadein 0.5s ease-in
@@ -1679,7 +1841,7 @@ table > tr {
     color: #f5b83d
     }
 .notion-dark-theme .token.atrule, .notion-dark-theme .token.attr-value, .notion-dark-theme .token.keyword {
-    color: #d1949e
+    color: #66a2cc
     }
 .notion-dark-theme .token.important, .notion-dark-theme .token.regex {
     color: #e90
@@ -1695,6 +1857,9 @@ table > tr {
     }
 .notion-dark-theme .token.deleted {
     color: red
+    }
+.notion-dark-theme .token.class-name, .notion-dark-theme .token.function {
+    color: #ecec93
     }
 .notion-gist-block .gist-data {
     display: flex
