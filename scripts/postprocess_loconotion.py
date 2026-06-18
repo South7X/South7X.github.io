@@ -88,6 +88,58 @@ body {
 .notion-selectable {
   max-width: 100% !important;
 }
+
+.notion-column_list-block > div {
+  width: 100% !important;
+  align-items: flex-start !important;
+}
+
+.notion-column_list-block > div > div:first-child {
+  width: clamp(240px, 24vw, 300px) !important;
+  flex: 0 0 clamp(240px, 24vw, 300px) !important;
+}
+
+.notion-column_list-block > div > div:nth-child(2) {
+  width: clamp(24px, 4vw, 46px) !important;
+  flex: 0 0 clamp(24px, 4vw, 46px) !important;
+}
+
+.notion-column_list-block > div > div:last-child {
+  width: auto !important;
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+}
+
+.notion-column_list-block > div > div:first-child img {
+  object-fit: contain !important;
+}
+
+.notion-column_list-block > div > div:first-child .content-editable-leaf-rtl {
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+@media (max-width: 760px) {
+  .notion-column_list-block > div {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .notion-column_list-block > div > div {
+    width: 100% !important;
+    flex: 0 0 auto !important;
+  }
+
+  .notion-column_list-block > div > div:first-child,
+  .notion-column_list-block > div > div:last-child {
+    width: 100% !important;
+    flex-basis: auto !important;
+  }
+
+  .notion-column_list-block > div > div:nth-child(2) {
+    display: none !important;
+  }
+}
 </style>
 """.strip()
 
@@ -99,8 +151,13 @@ def clean_index(index_path: Path) -> None:
     html = re.sub(r'<link\b[^>]*\bhref=["\']None["\'][^>]*>\s*', "", html)
     html = re.sub(r'<script\b[^>]*\bsrc=["\']None["\'][^>]*>\s*</script>\s*', "", html)
 
-    if FIX_STYLE_ID not in html:
-        html = html.replace("</head>", f"{FIX_CSS}</head>", 1)
+    html = re.sub(
+        rf'<style id=["\']{FIX_STYLE_ID}["\']>.*?</style>\s*',
+        "",
+        html,
+        flags=re.DOTALL,
+    )
+    html = html.replace("</head>", f"{FIX_CSS}</head>", 1)
 
     index_path.write_text(html, encoding="utf-8")
 
