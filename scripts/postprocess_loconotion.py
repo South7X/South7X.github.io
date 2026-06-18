@@ -14,9 +14,29 @@ FIX_CSS = """
 html,
 body,
 #notion-app {
+  width: 100% !important;
   height: auto !important;
   min-height: 100% !important;
-  overflow: auto !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+body {
+  position: static !important;
+}
+
+#notion-app,
+.notion-light-theme,
+.notion-app-inner,
+.notion-app-inner > div,
+.notion-cursor-listener,
+.notion-cursor-listener > div {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
 }
 
 .notion-topbar,
@@ -38,13 +58,34 @@ body,
 }
 
 .notion-scroller {
+  width: 100% !important;
   height: auto !important;
   max-height: none !important;
   overflow: visible !important;
 }
 
+.whenContentEditable,
 .layout,
+.layout-full,
+.layout-content,
+.layout-content > div,
+.layout-content > div > div {
+  width: min(100%, 980px) !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.layout {
+  display: block !important;
+  margin-inline: auto !important;
+  padding-inline: clamp(20px, 5vw, 72px) !important;
+}
+
 .layout-content {
+  margin-inline: auto !important;
+}
+
+.notion-selectable {
   max-width: 100% !important;
 }
 </style>

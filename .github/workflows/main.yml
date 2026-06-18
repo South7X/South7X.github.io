@@ -39,6 +39,9 @@ jobs:
         run: |
           source .venv/bin/activate
           python3 loconotion/loconotion --chromedriver chromedriver "pages_repo/site.toml"
+      - name: Clean generated site
+        run: python3 scripts/postprocess_loconotion.py
+        working-directory: pages_repo
       - name: Push to GitHub pages
         run: |
           git config --global user.name "github-actions[bot]"
