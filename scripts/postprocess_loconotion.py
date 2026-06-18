@@ -11,6 +11,13 @@ from pathlib import Path
 FIX_STYLE_ID = "github-pages-notion-fixes"
 FIX_CSS = """
 <style id="github-pages-notion-fixes">
+:root {
+  --page-max-width: 1600px;
+  --page-inline-padding: clamp(24px, 4vw, 64px);
+  --profile-column-width: clamp(260px, 22vw, 320px);
+  --profile-column-gap: clamp(28px, 4vw, 56px);
+}
+
 html,
 body,
 #notion-app {
@@ -70,7 +77,7 @@ body {
 .layout-content,
 .layout-content > div,
 .layout-content > div > div {
-  width: min(100%, 980px) !important;
+  width: min(100%, var(--page-max-width)) !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
 }
@@ -78,7 +85,8 @@ body {
 .layout {
   display: block !important;
   margin-inline: auto !important;
-  padding-inline: clamp(20px, 5vw, 72px) !important;
+  padding-inline: var(--page-inline-padding) !important;
+  padding-bottom: clamp(40px, 8vh, 96px) !important;
 }
 
 .layout-content {
@@ -95,13 +103,13 @@ body {
 }
 
 .notion-column_list-block > div > div:first-child {
-  width: clamp(240px, 24vw, 300px) !important;
-  flex: 0 0 clamp(240px, 24vw, 300px) !important;
+  width: var(--profile-column-width) !important;
+  flex: 0 0 var(--profile-column-width) !important;
 }
 
 .notion-column_list-block > div > div:nth-child(2) {
-  width: clamp(24px, 4vw, 46px) !important;
-  flex: 0 0 clamp(24px, 4vw, 46px) !important;
+  width: var(--profile-column-gap) !important;
+  flex: 0 0 var(--profile-column-gap) !important;
 }
 
 .notion-column_list-block > div > div:last-child {
@@ -120,6 +128,14 @@ body {
 }
 
 @media (max-width: 760px) {
+  :root {
+    --page-inline-padding: 20px;
+  }
+
+  .layout {
+    padding-bottom: 44px !important;
+  }
+
   .notion-column_list-block > div {
     display: flex !important;
     flex-direction: column !important;
@@ -138,6 +154,21 @@ body {
 
   .notion-column_list-block > div > div:nth-child(2) {
     display: none !important;
+  }
+
+  .notion-column_list-block
+    > div
+    > div:first-child
+    .notion-text-block:has([data-content-editable-leaf]:empty) {
+    display: none !important;
+  }
+
+  .notion-column_list-block > div > div:first-child {
+    padding-bottom: 8px !important;
+  }
+
+  .notion-column_list-block > div > div:last-child {
+    padding-top: 8px !important;
   }
 }
 </style>
