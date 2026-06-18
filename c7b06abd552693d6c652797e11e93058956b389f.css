@@ -1,3 +1,9 @@
+/*
+ * Print stylesheet — loaded at print time via <link> tag.
+ * The hash in the filename is auto-generated from file content.
+ * After editing, run `notion codegen assets` to update the hash
+ * and regenerate src/shared/assets.ts.
+ */
 html, body, #notion-app {
     height: auto !important;
     overflow: auto !important;
